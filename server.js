@@ -11,7 +11,7 @@ app.listen(3000, () => { //listens for anytype of requests
 
 //GET '/' to the root route - AKA landing page
 app.get('/', async (req, res) => {
-    res.send("Hello, friend!");
+    res.render("index.ejs");//connects to our html file
 });
 
 //------------- Blah Blah Blah -----------------//
