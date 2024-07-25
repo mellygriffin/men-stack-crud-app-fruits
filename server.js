@@ -29,7 +29,8 @@ app.get('/', async (req, res) => {
 //GET /fruits - fruit index route
 app.get("/fruits", async (req, res) => {
     const allFruits = await Fruit.find();
-    res.send("Welcome to the index page!");
+    console.log(allFruits);//log all the fruits!
+    res.render("fruits/index.ejs", { fruits: allFruits })
 })
 
 //GET page to create new fruits!
@@ -45,7 +46,7 @@ app.post("/fruits", async (req, res) => {
         req.body.isReadyToEat = false;
     }
     await Fruit.create(req.body);
-    res.redirect("/fruits/new");//moves to specific path AFTER form submission
+    res.redirect("/fruits");//moves to specific path AFTER form submission
 })
 
 
