@@ -18,6 +18,8 @@ mongoose.connection.on("connected", () => {
 //Import the Fruit model from fruit.js
 const Fruit = require("./models/fruit.js");
 
+app.use(express.urlencoded({ extended: false }));
+
 //GET '/' to the root route - AKA landing page
 app.get('/', async (req, res) => {
     res.render("index.ejs");//connects to our html file
